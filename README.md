@@ -1,2 +1,2 @@
-# design-pattern
-learning design pattern
+# docs-learning
+learning something new
