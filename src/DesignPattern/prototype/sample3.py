@@ -3,6 +3,7 @@
 __author__ = 'arnxun'
 
 import copy
+# import abc
 
 class baseObject:
     """
@@ -13,18 +14,23 @@ class baseObject:
     def clone(self):
         "定义复制现有实例来生成新实例的方法"
         return copy.deepcopy(self)
+    
+    # @abc.abstractmethod
+    # def clone1(self):
+    #     "子类必须定义clone1功能"
+    #     pass
 
 
 class PrototypeManager:
 
     def __init__(self):
-        self.source_list = dict()
+        self.source_dict = dict()
     
     def register(self, key, obj):
-        self.source_list[key] = obj
+        self.source_dict[key] = obj
 
     def get(self, key):
-        source = self.source_list.get(key)
+        source = self.source_dict.get(key)
         if not source:
             raise ValueError('Incorrect key: {}'.format(key))
         return source.clone()
